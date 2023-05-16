@@ -4,8 +4,12 @@ import mlconfig
 import mlflow
 import numpy as np
 import torch
+import os
 
 import src
+
+if not os.path.exists("./model"):
+    os.mkdir("./model")
 
 
 def parse_args():
