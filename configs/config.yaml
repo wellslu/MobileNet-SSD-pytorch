@@ -1,0 +1,34 @@
+trainer:
+  name: Trainer
+  num_epochs: 10
+
+dataset:
+  name: VOCDataLoader
+  batch_size: 8
+  scale: 512
+  aspect_ratios: [[2,], [2,3], [2,3], [2,3], [2,], [2,]]
+  feature_map: [64, 32, 16, 8, 4, 2]
+  sizes: [25, 50, 75, 100, 125, 150, 200]
+
+model:
+  name: MobileNet_SSD
+  num_classes: 2 
+
+criterion:
+  name: MultiBoxLoss
+  num_classes: 2
+
+optimizer:
+  name: Adam
+  lr: 1.e-3
+
+scheduler:
+  name: StepLR
+  step_size: 10
+
+decoder:
+  name: DataEncoder
+  scale: 512
+  aspect_ratios: [[2,], [2,3], [2,3], [2,3], [2,], [2,]]
+  feature_map: [64, 32, 16, 8, 4, 2]
+  sizes: [25, 50, 75, 100, 125, 150, 200]
